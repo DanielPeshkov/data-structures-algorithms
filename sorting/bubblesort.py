@@ -31,7 +31,7 @@ def test_bubble_sort():
     success_msg = '\033[92m' + 'Success' + '\x1b[0m'
     failed_msg = '\033[91m' + 'Failed' + '\x1b[0m'
     for i, (data, expected) in enumerate(test_cases):
-        sorted_data = bubble_sort(data.copy())  # Copy to avoid modifying original data
+        sorted_data = bubble_sort(data.copy())
         success = sorted_data == expected
         print(f"Test Case {i+1}: {success_msg if success else failed_msg} - Expected: {expected}, Got: {sorted_data}")
 

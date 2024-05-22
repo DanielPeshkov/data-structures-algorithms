@@ -1,32 +1,16 @@
-# Binary Search function
-def binary_search(arr: list, target: float) -> int:
-    # Return not found for empty array
-    if len(arr) < 1:
-        return -1
-
-    # Starting indices for first and last element
-    low = 0
-    high = len(arr) - 1
-
-    # Iterate until start and end are equal
-    while low <= high:
-        # Midpoint between start and end
-        mid = (low + high) // 2
-        # Target is greater than midpoint
-        if arr[mid] < target:
-            low = mid + 1
-        # Target is less than midpoint
-        elif arr[mid] > target:
-            high = mid - 1
+# Linear Search function
+def linear_search(arr: list, target: float) -> int:
+    # Iterate over each element in arr
+    for i in range(len(arr)):
         # Target found
-        else:
-            return mid
+        if arr[i] == target:
+            return i
     # Target not found
     return -1
 
 
-def test_binary_search():
-    # Test cases for binary search
+def test_linear_search():
+    # Test cases for linear search
     test_cases = [
         # Empty array and target not found
         ([], 5, -1),
@@ -54,9 +38,9 @@ def test_binary_search():
     success_msg = '\033[92m' + 'Success' + '\x1b[0m'
     failed_msg = '\033[91m' + 'Failed' + '\x1b[0m'
     for i, (data, target, expected) in enumerate(test_cases):
-        result = binary_search(data, target)
+        result = linear_search(data, target)
         success = result == expected
         print(f"Test Case {i+1}: {success_msg if success else failed_msg} - Expected: {expected}, Got: {result}")
 
 # Run the test cases
-test_binary_search()
+test_linear_search()
